@@ -1,19 +1,152 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { Button, StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native'; 
+import { createStackNavigator } from '@react-navigation/stack';
 
-export default function App() {
+const tasks = [
+  {
+    "name": "",
+    "category": "",
+    "points": 0,
+  }
+]
+
+const rewards = [
+  {
+    "name": "",
+    "category": "",
+    "points": 0,
+  }
+]
+
+// Stack Navigator Props (Screen Components)
+function HomeScreen( {navigation} ) {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <Text>Home Screen</Text>
+
+      <Button
+      title="Home"
+      onPress={() => navigation.navigate('Home')}
+      />
+
+      <Button
+      title="Tasks"
+      onPress={() => navigation.navigate('Tasks')}
+      />
+
+      <Button
+      title="Rewards"
+      onPress={() => navigation.navigate('Rewards')}
+      />
+
+      <Button
+      title="Profile"
+      onPress={() => navigation.navigate('Profile')}
+      />
+
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+function TasksScreen( {navigation} ) {
+  return(
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <Text>Tasks Screen</Text>
+
+      <Button
+      title="Home"
+      onPress={() => navigation.navigate('Home')}
+      />
+
+      <Button
+      title="Tasks"
+      onPress={() => navigation.navigate('Tasks')}
+      />
+
+      <Button
+      title="Rewards"
+      onPress={() => navigation.navigate('Rewards')}
+      />
+
+      <Button
+      title="Profile"
+      onPress={() => navigation.navigate('Profile')}
+      />
+    </View>
+  );
+}
+
+function RewardsScreen( {navigation} ) {
+  return ( 
+    <View style={{ flex:1, alignItems: 'center', justifyContent: 'center'}}>
+      <Text>Rewards Screen</Text>
+
+      <Button
+      title="Home"
+      onPress={() => navigation.navigate('Home')}
+      />
+
+      <Button
+      title="Tasks"
+      onPress={() => navigation.navigate('Tasks')}
+      />
+
+      <Button
+      title="Rewards"
+      onPress={() => navigation.navigate('Rewards')}
+      />
+
+      <Button
+      title="Profile"
+      onPress={() => navigation.navigate('Profile')}
+      />
+    </View>
+  );
+}
+
+function ProfileScreen( {navigation} ) { 
+  return (
+    <View style = {{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <Text>Profile Screen</Text>
+
+      <Button
+      title="Home"
+      onPress={() => navigation.navigate('Home')}
+      />
+
+      <Button
+      title="Tasks"
+      onPress={() => navigation.navigate('Tasks')}
+      />
+
+      <Button
+      title="Rewards"
+      onPress={() => navigation.navigate('Rewards')}
+      />
+
+      <Button
+      title="Profile"
+      onPress={() => navigation.navigate('Profile')}
+      />
+    </View>
+  )
+}
+
+const Stack = createStackNavigator();
+
+// Routes
+function App() { 
+  return (  
+    <NavigationContainer> 
+      <Stack.Navigator initialRouteName="Home"> 
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Tasks" component={TasksScreen} />
+        <Stack.Screen name="Rewards" component={RewardsScreen} />
+        <Stack.Screen name="Profile" component={ProfileScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default App;

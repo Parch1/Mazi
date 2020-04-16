@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { Image, Button, StyleSheet, Text, View, TabBarIOSItem } from 'react-native';
+import { TouchableOpacity, Image, StyleSheet, Text, View, TabBarIOSItem } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { AppLoading } from 'expo';
 import { useFonts } from '@use-expo/font';
-
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -26,28 +25,24 @@ const rewards = [
   }
 ]
 
-// Stack Navigator Props (Screen Components)
 function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
       <Text style={styles.title}>Mazi</Text>
 
-      <Image style={{ alignSelf: 'center', marginTop: 140, }} source={require("./assets/icons/old/user.png")} />
+      <Image style={{ alignSelf: 'center', marginTop: 140 }} source={require("./assets/ui/homescreen.png")} />
 
       <Text style={{
         fontFamily: "DidactGothic-Regular",
         fontSize: 30,
         lineHeight: 39,
         textAlign: 'center',
-        marginTop: 20,
+        marginTop: 10,
         textShadowColor: 'rgba(0, 0, 0, 0.25)',
-        textShadowOffset: {width: 0, height: 4},
+        textShadowOffset: { width: 0, height: 4 },
         textShadowRadius: 4,
-        }}>
+      }}>
         welcome, Ryan!</Text>
-
-        
-
     </View>
   );
 }
@@ -55,28 +50,28 @@ function HomeScreen({ navigation }) {
 // Has secondary screen (TaskDescScreen)
 function TasksScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Tasks Screen</Text>
+    <View style={{ flex: 1, flexDirection: 'column' }}>
+      <Text style={styles.title}>Mazi</Text>
+      
+      <TouchableOpacity
+        style={styles.button}>
+        <Image source={require("./assets/ui/button1.png")} />
+      </TouchableOpacity>
 
-      <Button
-        title="Home"
-        onPress={() => navigation.navigate('Home')}
-      />
+      <TouchableOpacity
+        style={styles.buttons}>
+        <Image source={require("./assets/ui/button2.png")} />
+      </TouchableOpacity>
 
-      <Button
-        title="Tasks"
-        onPress={() => navigation.navigate('Tasks')}
-      />
+      <TouchableOpacity
+        style={styles.buttons}>
+        <Image source={require("./assets/ui/button3.png")} />
+      </TouchableOpacity>
 
-      <Button
-        title="Rewards"
-        onPress={() => navigation.navigate('Rewards')}
-      />
-
-      <Button
-        title="Profile"
-        onPress={() => navigation.navigate('Profile')}
-      />
+      <TouchableOpacity
+        style={styles.buttons}>
+        <Image source={require("./assets/ui/button4.png")} />
+      </TouchableOpacity>
     </View>
   );
 }
@@ -216,6 +211,14 @@ const styles = StyleSheet.create({
     lineHeight: 39,
     marginLeft: 30,
     marginTop: 50,
+  },
+  button: {
+    marginTop: 70,
+    alignSelf: 'center',
+  },
+  buttons: {
+    marginTop: 30,
+    alignSelf: 'center',
   }
 })
 

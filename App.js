@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Image, Button, StyleSheet, Text, View, TabBarIOSItem } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
@@ -149,17 +149,48 @@ function App() {
     <NavigationContainer>
       <Tab.Navigator
         initialRouteName="Home"
-        activeColor="#e91e63"
-        style={{ backgroundColor: 'tomato' }}
+        activeColor="#fff"
+        inactiveColor="#fff"
+        barStyle={{ backgroundColor: '#BEEBE9', paddingBottom: 10 }}
       >
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Tasks" component={TasksScreen} />
-        <Tab.Screen name="Rewards" component={RewardsScreen} />
-        <Tab.Screen name="Profile" component={ProfileScreen} />
+        <Tab.Screen name="Home" component={HomeScreen}
+          options={{
+            tabBarLabel: "",
+            tabBarIcon: ({ }) => (
+              <Image source={require("./assets/icons/home-run.png")} />
+            )
+          }}
+        />
 
+        <Tab.Screen name="Tasks" component={TasksScreen}
+          options={{
+            tabBarLabel: "",
+            tabBarIcon: ({ }) => (
+              <Image source={require("./assets/icons/notepad.png")} />
+            )
+          }}
+
+        />
+        <Tab.Screen name="Rewards" component={RewardsScreen}
+          options={{
+            tabBarLabel: "",
+            tabBarIcon: ({ }) => (
+              <Image source={require("./assets/icons/birthday-and-party.png")} />
+            )
+          }}
+        />
+
+        <Tab.Screen name="Profile" component={ProfileScreen}
+          options={{
+            tabBarLabel: "",
+            tabBarIcon: ({ }) => (
+              <Image source={require("./assets/icons/user.png")} />
+            )
+          }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
-  )
+  );
 }
 
 export default App;

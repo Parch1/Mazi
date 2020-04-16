@@ -3,6 +3,9 @@ import { Image, Button, StyleSheet, Text, View, TabBarIOSItem } from 'react-nati
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { AppLoading } from 'expo';
+import { useFonts } from '@use-expo/font';
+
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -27,7 +30,7 @@ const rewards = [
 function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
+      <Text style={styles.title}>Mazi</Text>
       <Button
         title="Home"
         onPress={() => navigation.navigate('Home')}
@@ -145,55 +148,72 @@ function ProfileScreen({ navigation }) {
 }
 
 function App() {
-  return (
-    <NavigationContainer>
-      <Tab.Navigator
-        initialRouteName="Home"
-        activeColor="#fff"
-        inactiveColor="#fff"
-        barStyle={{ backgroundColor: '#BEEBE9', paddingBottom: 10 }}
-      >
-        <Tab.Screen name="Home" component={HomeScreen}
-          options={{
-            tabBarLabel: "",
-            tabBarIcon: ({ }) => (
-              <Image source={require("./assets/icons/home-run.png")} />
-            )
-          }}
-        />
 
-        <Tab.Screen name="Tasks" component={TasksScreen}
-          options={{
-            tabBarLabel: "",
-            tabBarIcon: ({ }) => (
-              <Image source={require("./assets/icons/notepad.png")} />
-            )
-          }}
+  let [fontsLoaded] = useFonts({
+    'DidactGothic-Regular': require('./assets/fonts/DidactGothic-Regular.ttf'),
+  });
 
-        />
-        <Tab.Screen name="Rewards" component={RewardsScreen}
-          options={{
-            tabBarLabel: "",
-            tabBarIcon: ({ }) => (
-              <Image source={require("./assets/icons/birthday-and-party.png")} />
-            )
-          }}
-        />
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  } else {
+    return (
+      <NavigationContainer>
+        <Tab.Navigator
+          initialRouteName="Home"
+          activeColor="#fff"
+          inactiveColor="#fff"
+          barStyle={{ backgroundColor: '#BEEBE9', paddingBottom: 10 }}
+        >
+          <Tab.Screen name="Home" component={HomeScreen}
+            options={{
+              tabBarLabel: "",
+              tabBarIcon: ({ }) => (
+                <Image source={require("./assets/icons/home-run.png")} />
+              )
+            }}
+          />
 
-        <Tab.Screen name="Profile" component={ProfileScreen}
-          options={{
-            tabBarLabel: "",
-            tabBarIcon: ({ }) => (
-              <Image source={require("./assets/icons/user.png")} />
-            )
-          }}
-        />
-      </Tab.Navigator>
-    </NavigationContainer>
-  );
+          <Tab.Screen name="Tasks" component={TasksScreen}
+            options={{
+              tabBarLabel: "",
+              tabBarIcon: ({ }) => (
+                <Image source={require("./assets/icons/notepad.png")} />
+              )
+            }}
+
+          />
+          <Tab.Screen name="Rewards" component={RewardsScreen}
+            options={{
+              tabBarLabel: "",
+              tabBarIcon: ({ }) => (
+                <Image source={require("./assets/icons/birthday-and-party.png")} />
+              )
+            }}
+          />
+
+          <Tab.Screen name="Profile" component={ProfileScreen}
+            options={{
+              tabBarLabel: "",
+              tabBarIcon: ({ }) => (
+                <Image source={require("./assets/icons/user.png")} />
+              )
+            }}
+          />
+        </Tab.Navigator>
+      </NavigationContainer>
+    );
+  }
 }
 
 export default App;
+
+const styles = StyleSheet.create({
+  title: {
+    fontFamily: "DidactGothic-Regular",
+    fontSize: 30,
+  }
+})
+
 
 /*
 // Routes

@@ -29,27 +29,25 @@ const rewards = [
 // Stack Navigator Props (Screen Components)
 function HomeScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View style={{ flex: 1, flexDirection: 'column' }}>
       <Text style={styles.title}>Mazi</Text>
-      <Button
-        title="Home"
-        onPress={() => navigation.navigate('Home')}
-      />
 
-      <Button
-        title="Tasks"
-        onPress={() => navigation.navigate('Tasks')}
-      />
+      <Image style={{ alignSelf: 'center', marginTop: 140, }} source={require("./assets/icons/old/user.png")} />
 
-      <Button
-        title="Rewards"
-        onPress={() => navigation.navigate('Rewards')}
-      />
+      <Text style={{
+        fontFamily: "DidactGothic-Regular",
+        fontSize: 30,
+        lineHeight: 39,
+        textAlign: 'center',
+        marginTop: 20,
+        textShadowColor: 'rgba(0, 0, 0, 0.25)',
+        textShadowOffset: {width: 0, height: 4},
+        textShadowRadius: 4,
+        }}>
+        welcome, Ryan!</Text>
 
-      <Button
-        title="Profile"
-        onPress={() => navigation.navigate('Profile')}
-      />
+        
+
     </View>
   );
 }
@@ -147,8 +145,10 @@ function ProfileScreen({ navigation }) {
   )
 }
 
+// Main app
 function App() {
 
+  // Load Font
   let [fontsLoaded] = useFonts({
     'DidactGothic-Regular': require('./assets/fonts/DidactGothic-Regular.ttf'),
   });
@@ -156,6 +156,8 @@ function App() {
   if (!fontsLoaded) {
     return <AppLoading />;
   } else {
+
+    // Bottom Navigation
     return (
       <NavigationContainer>
         <Tab.Navigator
@@ -211,11 +213,14 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: "DidactGothic-Regular",
     fontSize: 30,
+    lineHeight: 39,
+    marginLeft: 30,
+    marginTop: 50,
   }
 })
 
 
-/*
+/* Placeholder for header bar
 // Routes
 function App() {
   return (

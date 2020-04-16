@@ -47,14 +47,15 @@ function HomeScreen({ navigation }) {
   );
 }
 
-// Has secondary screen (TaskDescScreen)
-function TasksScreen({ navigation }) {
+// Displays task categories
+function TaskDashboard({ navigation }) {
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
       <Text style={styles.title}>Mazi</Text>
-      
+
       <TouchableOpacity
-        style={styles.button}>
+        style={styles.firstbutton}
+        >
         <Image source={require("./assets/ui/button1.png")} />
       </TouchableOpacity>
 
@@ -76,8 +77,36 @@ function TasksScreen({ navigation }) {
   );
 }
 
-// TaskDescScreen - Timer and below it is a done button and cancel button. 
-function TaskDescScreen({ navigation }) {
+function LocalBusinessTasks({ navigation }) {
+  return (
+    null
+    // Placeholder
+  );
+}
+
+function WellnessTasks({ navigation }) {
+  return (
+    null
+    // Placeholder
+  );
+}
+
+function FitnessTasks({ navigation }) {
+  return (
+    null
+    // Placeholder
+  );
+}
+
+function QuarantineTask({ navigation }) {
+  return (
+    null
+    // Placeholder
+  );
+}
+
+// 
+function TaskScreen({ navigation }) {
   return (
     null
     // Placeholder
@@ -88,26 +117,6 @@ function RewardsScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Rewards Screen</Text>
-
-      <Button
-        title="Home"
-        onPress={() => navigation.navigate('Home')}
-      />
-
-      <Button
-        title="Tasks"
-        onPress={() => navigation.navigate('Tasks')}
-      />
-
-      <Button
-        title="Rewards"
-        onPress={() => navigation.navigate('Rewards')}
-      />
-
-      <Button
-        title="Profile"
-        onPress={() => navigation.navigate('Profile')}
-      />
     </View>
   );
 }
@@ -116,26 +125,6 @@ function ProfileScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Profile Screen</Text>
-
-      <Button
-        title="Home"
-        onPress={() => navigation.navigate('Home')}
-      />
-
-      <Button
-        title="Tasks"
-        onPress={() => navigation.navigate('Tasks')}
-      />
-
-      <Button
-        title="Rewards"
-        onPress={() => navigation.navigate('Rewards')}
-      />
-
-      <Button
-        title="Profile"
-        onPress={() => navigation.navigate('Profile')}
-      />
     </View>
   )
 }
@@ -170,7 +159,7 @@ function App() {
             }}
           />
 
-          <Tab.Screen name="Tasks" component={TasksScreen}
+          <Tab.Screen name="Tasks" component={TaskDashboard}
             options={{
               tabBarLabel: "",
               tabBarIcon: ({ }) => (
@@ -210,10 +199,10 @@ const styles = StyleSheet.create({
     fontSize: 30,
     lineHeight: 39,
     marginLeft: 30,
-    marginTop: 50,
+    marginTop: 60,
   },
-  button: {
-    marginTop: 70,
+  firstbutton: {
+    marginTop: 90,
     alignSelf: 'center',
   },
   buttons: {
@@ -221,38 +210,3 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   }
 })
-
-
-/* Placeholder for header bar
-// Routes
-function App() {
-  return (
-    <NavigationContainer>
-
-      <Stack.Navigator
-        initialRouteName="Home"
-        screenOptions={{
-          headerStyle: { backgroundColor: '#f4511e', },
-          headerTintColor: '#fff',
-          headerTitleStyle: { fontWeight: 'bold', },
-          headerTitle: "",
-          headerShown: false,
-        }}
-        >
-
-        <Stack.Screen name="Home" component={HomeScreen} />
-
-        <Stack.Screen
-          name="Tasks"
-          component={TasksScreen}
-          initialParams={{ tasks }}
-        />
-
-        <Stack.Screen name="Rewards" component={RewardsScreen} />
-        <Stack.Screen name="Profile" component={ProfileScreen} />
-      </Stack.Navigator>
-
-    </NavigationContainer>
-  );
-}
-*/

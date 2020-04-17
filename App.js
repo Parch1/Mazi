@@ -87,6 +87,8 @@ function TaskDashboardNav({ navigation }) {
 
       <Stack.Screen name="TaskScreen" component={TaskScreen} />
 
+      <Stack.Screen name="RewardsScreen" component={RewardsScreen} />
+
     </Stack.Navigator>
   );
 }
@@ -257,8 +259,88 @@ function TaskScreen({ navigation }) {
 
 function RewardsScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Rewards Screen</Text>
+    <View style={{ flex: 1, flexDirection: 'column', }}>
+      <ScrollView persistentScrollbar={true}>
+
+        <View style={containerStyle.headerContainer}>
+          <Text style={styles.rewardTitle}>Mazi</Text>
+          <TouchableOpacity>
+            <Image style={{ marginLeft: 130, marginTop: 57 }} source={require("./assets/ui/rewardsnav.png")} />
+          </TouchableOpacity>
+
+        </View>
+        <Text style={styles.tasks}>Use points to claim rewards!</Text>
+
+        <View style={containerStyle.rowContainer}>
+          <TouchableOpacity
+            style={styles.firstbutton}          
+            >
+            <Image source={require("./assets/ui/rewards/reward1.png")} />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.firstbutton}
+          >
+            <Image source={require("./assets/ui/rewards/reward8.png")} />
+          </TouchableOpacity>
+        </View>
+
+        <View style={containerStyle.rowContainer}>
+          <TouchableOpacity
+            style={styles.firstbutton}
+          >
+            <Image source={require("./assets/ui/rewards/reward6.png")} />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.firstbutton}
+          >
+            <Image source={require("./assets/ui/rewards/reward5.png")} />
+          </TouchableOpacity>
+        </View>
+
+        <View style={containerStyle.rowContainer}>
+          <TouchableOpacity
+            style={styles.firstbutton}
+          >
+            <Image source={require("./assets/ui/rewards/reward7.png")} />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.firstbutton}
+          >
+            <Image source={require("./assets/ui/rewards/reward3.png")} />
+          </TouchableOpacity>
+        </View>
+
+        <View style={containerStyle.rowContainer}>
+          <TouchableOpacity
+            style={styles.firstbutton}
+          >
+            <Image source={require("./assets/ui/rewards/reward4.png")} />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.firstbutton}
+          >
+            <Image source={require("./assets/ui/rewards/reward2.png")} />
+          </TouchableOpacity>
+        </View>
+
+        <View style={containerStyle.rowContainer}>
+          <TouchableOpacity
+            style={styles.firstbutton}
+          >
+            <Image source={require("./assets/ui/rewards/reward1.png")} />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.firstbutton}
+          >
+            <Image source={require("./assets/ui/rewards/reward2.png")} />
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
     </View>
   );
 }
@@ -344,7 +426,7 @@ const styles = StyleSheet.create({
     marginTop: 60,
   },
   firstbutton: {
-    marginTop: 50,
+    marginTop: 48,
     alignSelf: 'center',
   },
   buttons: {
@@ -367,6 +449,13 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: 50,
     color: '#82BCC7',
+  },
+  rewardTitle: {
+    fontFamily: "DidactGothic-Regular",
+    fontSize: 30,
+    lineHeight: 39,
+    marginLeft: 30,
+    marginTop: 60,
   },
   text: {
     fontFamily: "DidactGothic-Regular",
@@ -411,4 +500,21 @@ const styles = StyleSheet.create({
     flex: 1,
   }
 })
+
+const containerStyle = StyleSheet.create({
+  container: {
+    padding: 6,
+    backgroundColor: "#ffffff",
+  },
+  rowContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    flex: 2,
+    paddingHorizontal: 25,
+  },
+  headerContainer: {
+    flexDirection: 'row',
+    flex: 2,
+  },
+});
 

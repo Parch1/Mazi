@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import PropTypes from "prop-types";
 
-// compatability for react-native versions < 0.44
 const ViewPropTypesStyle = ViewPropTypes
   ? ViewPropTypes.style
   : View.propTypes.style;
@@ -94,7 +93,7 @@ export default class PercentageCircle extends React.PureComponent {
     seconds: PropTypes.number.isRequired,
     radius: PropTypes.number.isRequired,
     color: PropTypes.string,
-    shadowColor: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
+    shadowColor: PropTypes.string, 
     bgColor: PropTypes.string,
     borderWidth: PropTypes.number,
     containerStyle: ViewPropTypesStyle,
@@ -131,7 +130,6 @@ export default class PercentageCircle extends React.PureComponent {
   }
 
   onCircleAnimated = ({ finished }) => {
-    // if animation was interrupted by stopAnimation don't restart it.
     if (!finished) return;
 
     const secondsElapsed = this.state.secondsElapsed + 1;

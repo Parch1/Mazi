@@ -5,7 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { AppLoading } from 'expo';
 import { useFonts } from '@use-expo/font';
-import CountdownCircle from './components/CountdownTimer' //you can make your own file and import from that
+import CountdownCircle from './components/CountdownTimer' // can make your own file and import from that
+import QuarantineTimer from './components/QuarantineTimer'
 
 // import "./styles.css"; Refactor by migrating styles later
 
@@ -222,12 +223,22 @@ function FitnessTasks({ navigation }) {
   );
 }
 
-// Placeholder
 function QuarantineTask({ navigation }) {
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
       <Text style={styles.title}>Mazi</Text>
+
       <Text style={styles.taskCategory}>Quarantine</Text>
+      <Text style={styles.tasks}>Stay indoors for this duration</Text>
+
+      <QuarantineTimer style={{marginTop: 120}}
+        until={86400}
+        onFinish={() => alert('Your quarantine is over! You earned 120 points!')}
+        onPress={() => alert("Don't give up! You're on your way to earning 120 points!")}
+        size={40}
+      />
+      
+      <Image style={{marginTop: 60, alignSelf: 'center', marginRight: 20,}} source={require("./assets/ui/tasks/quarantine.png")} />
 
     </View>
   );
@@ -337,7 +348,7 @@ function RewardsScreen({ navigation }) {
           <TouchableOpacity
             style={styles.firstbutton}
           >
-            <Image source={require("./assets/ui/rewards/reward2.png")} />
+            <Image source={require("./assets/ui/rewards/reward8.png")} />
           </TouchableOpacity>
         </View>
       </ScrollView>

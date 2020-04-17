@@ -1,4 +1,6 @@
 # Mazi
+Introducing Mazi, a mobile app to gamify the quarantine! Earn rewards by performing tasks at home. Self-quarantine with an incentive!
+
 Project Page and Screenshots: https://devpost.com/software/mazi-uxvoiy 
 
 Video Demo: https://vimeo.com/409025265

@@ -4320,6 +4320,13 @@ range-parser@~1.2.1:
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
   integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
 
+react-countdown-circle-timer@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/react-countdown-circle-timer/-/react-countdown-circle-timer-1.2.1.tgz#e7921a4ea9aac069dcede879bd07786557a7a82e"
+  integrity sha512-vjSbsMYzlN0/KY2eN2LHt58zqIR+V2J4q7MyCz/GqSrq0zU8bz3B+It3qb4s4bx/pl6CPIDkMqs7P31xadtIlQ==
+  dependencies:
+    use-elapsed-time "^1.1.5"
+
 react-devtools-core@^3.6.3:
   version "3.6.3"
   resolved "https://registry.yarnpkg.com/react-devtools-core/-/react-devtools-core-3.6.3.tgz#977d95b684c6ad28205f0c62e1e12c5f16675814"
@@ -5320,6 +5327,11 @@ url-parse@^1.4.4:
   dependencies:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
+
+use-elapsed-time@^1.1.5:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/use-elapsed-time/-/use-elapsed-time-1.1.6.tgz#5639828f540d7b2d2454d56671c9615fb6751abd"
+  integrity sha512-hjsniIKkRslgcWiU1KRoLnxoBy+YyuizpeHC3nqbSQKkzWI2r7pPue8fdgbUGT4yfULDb6PkvJsH5hpgAykg4A==
 
 use-subscription@^1.4.0:
   version "1.4.1"

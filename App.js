@@ -5,6 +5,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { AppLoading } from 'expo';
 import { useFonts } from '@use-expo/font';
+import CountdownCircle from './components/CountdownTimer' //you can make your own file and import from that
+
+// import "./styles.css"; Refactor by migrating styles later
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -50,17 +53,17 @@ function HomeScreen({ navigation }) {
     <View style={{ flex: 1, flexDirection: 'column' }}>
       <Text style={styles.title}>Mazi</Text>
 
-      <Image style={{ alignSelf: 'center', marginTop: 140 }} source={require("./assets/ui/homescreen.png")} />
+      <Image style={{ alignSelf: 'center', marginTop: 110 }} source={require("./assets/ui/homescreen.png")} />
 
       <Text style={{
         fontFamily: "DidactGothic-Regular",
-        fontSize: 30,
-        lineHeight: 39,
+        fontSize: 45,
+        lineHeight: 44,
         textAlign: 'center',
-        marginTop: 20,
+        marginTop: 50,
         textShadowColor: 'rgba(0, 0, 0, 0.25)',
-        textShadowOffset: { width: 0, height: 4 },
-        textShadowRadius: 4,
+        textShadowOffset: { width: 0, height: 5 },
+        textShadowRadius: 6,
       }}>
         welcome, Ryan!</Text>
     </View>
@@ -228,12 +231,25 @@ function QuarantineTask({ navigation }) {
   );
 }
 
-// 
 function TaskScreen({ navigation }) {
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
       <Text style={styles.title}>Mazi</Text>
-      <Text style={styles.taskTitle}>20 push-ups</Text>
+
+      <Text style={styles.taskTitle}>20 Push Ups</Text>
+
+      <CountdownCircle
+        seconds={25}
+        radius={140}
+        borderWidth={25}
+        color="#beebe9"
+        bgColor="#fff"
+        shadowColor="#ffe3ed"
+        textStyle={{ fontSize: 70, fontFamily: "DidactGothic-Regular", }}
+        onTimeElapsed={() => navigation.navigate("TaskDashboard")}
+      />
+
+      <Image style={{ alignSelf: 'center', marginRight: 10, marginTop: 30 }} source={require("./assets/ui/points.png")} />
 
     </View>
   );
@@ -346,10 +362,10 @@ const styles = StyleSheet.create({
   },
   taskTitle: {
     fontFamily: "DidactGothic-Regular",
-    fontSize: 40,
-    lineHeight: 39,
+    fontSize: 46,
+    lineHeight: 48,
     alignSelf: 'center',
-    marginTop: 30,
+    marginTop: 50,
     color: '#82BCC7',
   },
   text: {
@@ -395,3 +411,4 @@ const styles = StyleSheet.create({
     flex: 1,
   }
 })
+

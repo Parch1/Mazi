@@ -273,8 +273,8 @@ function RewardsScreen({ navigation }) {
 
         <View style={containerStyle.rowContainer}>
           <TouchableOpacity
-            style={styles.firstbutton}          
-            >
+            style={styles.firstbutton}
+          >
             <Image source={require("./assets/ui/rewards/reward1.png")} />
           </TouchableOpacity>
 
@@ -347,8 +347,14 @@ function RewardsScreen({ navigation }) {
 
 function ProfileScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Profile Screen</Text>
+    <View style={{ flex: 1, flexDirection: 'column', }}>
+      <Text style={styles.title}>Mazi</Text>
+
+      <Image style={{ alignSelf: 'center', marginTop: 60, marginRight: 40, }} source={require("./assets/ui/profile.png")} />
+
+      <TouchableOpacity>
+        <Image style={{ alignSelf: 'center', marginTop: 40 }} source={require("./assets/ui/invite.png")}></Image>
+      </TouchableOpacity>
     </View>
   )
 }

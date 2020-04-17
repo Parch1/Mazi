@@ -67,6 +67,8 @@ function HomeScreen({ navigation }) {
         textShadowRadius: 6,
       }}>
         welcome, Ryan!</Text>
+
+        <Text style={styles.tasks}>You have eight tasks available</Text>
     </View>
   );
 }

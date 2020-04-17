@@ -9,19 +9,39 @@ import { useFonts } from '@use-expo/font';
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
 
-const tasks = [
+const localBusinessTasks = [
   {
-    "name": "",
-    "category": "",
+    "description": "",
     "points": 0,
+    "time": 0,
+    "visible": true,
+  }
+]
+
+const wellnessTasks = [
+  {
+    "description": "",
+    "points": 0,
+    "time": 0,
+    "visible": true,
+  }
+]
+
+const fitnessTasks = [
+  {
+    "description": "",
+    "points": 0,
+    "time": 0,
+    "visible": true,
   }
 ]
 
 const rewards = [
   {
-    "name": "",
-    "category": "",
+    "description": "",
     "points": 0,
+    "visible": true,
+    "color": "",
   }
 ]
 
@@ -37,7 +57,7 @@ function HomeScreen({ navigation }) {
         fontSize: 30,
         lineHeight: 39,
         textAlign: 'center',
-        marginTop: 10,
+        marginTop: 20,
         textShadowColor: 'rgba(0, 0, 0, 0.25)',
         textShadowOffset: { width: 0, height: 4 },
         textShadowRadius: 4,
@@ -69,6 +89,8 @@ function TaskDashboard({ navigation }) {
   return (
     <View style={{ flex: 1, flexDirection: 'column', }}>
       <Text style={styles.title}>Mazi</Text>
+
+      <Text style={styles.tasks}>Here are your tasks for today</Text>
 
       <TouchableOpacity
         style={styles.firstbutton}
@@ -105,7 +127,12 @@ function LocalBusinessTasks({ navigation }) {
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
       <Text style={styles.title}>Mazi</Text>
+      <Text style={styles.taskCategory}>Local Businesses</Text>
 
+      <Text style={styles.text}>No tasks available right now :(</Text>
+      <Text style={styles.text2}>Check back later!</Text>
+
+      <Image style={styles.image} source={require("./assets/ui/bike.png")} />
     </View>
 
   );
@@ -115,7 +142,12 @@ function WellnessTasks({ navigation }) {
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
       <Text style={styles.title}>Mazi</Text>
+      <Text style={styles.taskCategory}>Wellness</Text>
 
+      <Text style={styles.text}>No tasks available right now :(</Text>
+      <Text style={styles.text2}>Check back later!</Text>
+
+      <Image style={styles.image} source={require("./assets/ui/bike.png")} />
     </View>
   );
 }
@@ -124,6 +156,7 @@ function FitnessTasks({ navigation }) {
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
       <Text style={styles.title}>Mazi</Text>
+      <Text style={styles.taskCategory}>Fitness</Text>
 
     </View>
   );
@@ -133,6 +166,7 @@ function QuarantineTask({ navigation }) {
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
       <Text style={styles.title}>Mazi</Text>
+      <Text style={styles.taskCategory}>Quarantine</Text>
 
     </View>
   );
@@ -235,11 +269,50 @@ const styles = StyleSheet.create({
     marginTop: 60,
   },
   firstbutton: {
-    marginTop: 90,
+    marginTop: 50,
     alignSelf: 'center',
   },
   buttons: {
     marginTop: 30,
     alignSelf: 'center',
+  },
+  taskCategory: {
+    fontFamily: "DidactGothic-Regular",
+    fontSize: 40,
+    lineHeight: 39,
+    alignSelf: 'center',
+    marginTop: 30,
+    color: '#8AC6D1',
+  },
+  text: {
+    fontFamily: "DidactGothic-Regular",
+    fontSize: 28,
+    textAlign: 'center',
+    marginTop: 110,
+    textShadowColor: 'rgba(0, 0, 0, 0.25)',
+    textShadowOffset: { width: 0, height: 4 },
+    textShadowRadius: 4,
+  },
+  tasks: {
+    fontFamily: "DidactGothic-Regular",
+    fontSize: 28,
+    textAlign: 'center',
+    marginTop: 30,
+    textShadowColor: 'rgba(0, 0, 0, 0.25)',
+    textShadowOffset: { width: 0, height: 4 },
+    textShadowRadius: 4,
+  },
+  text2: {
+    fontFamily: "DidactGothic-Regular",
+    fontSize: 28,
+    textAlign: 'center',
+    marginTop: 30,
+    textShadowColor: 'rgba(0, 0, 0, 0.25)',
+    textShadowOffset: { width: 0, height: 4 },
+    textShadowRadius: 4,
+  },
+  image: {
+    alignSelf: 'center', 
+    marginTop: 60,
   }
 })

@@ -47,30 +47,54 @@ function HomeScreen({ navigation }) {
   );
 }
 
+// Nested navigator to handle non-tab-bar navigation from task category to task list. Tab bar navigator takes user to Task Dashboard navigator
+function TaskDashboardNav({ navigation }) {
+  return (
+    <Stack.Navigator screenOptions={{
+      headerShown: false,
+      initialRouteName: "TaskDashboard"
+    }
+    }>
+      <Stack.Screen name="TaskDashboard" component={TaskDashboard} />
+      <Stack.Screen name="LocalBusinessTasks" component={LocalBusinessTasks} />
+      <Stack.Screen name="WellnessTasks" component={WellnessTasks} />
+      <Stack.Screen name="FitnessTasks" component={FitnessTasks} />
+      <Stack.Screen name="QuarantineTask" component={QuarantineTask} />
+    </Stack.Navigator>
+  );
+}
+
 // Displays task categories
 function TaskDashboard({ navigation }) {
   return (
-    <View style={{ flex: 1, flexDirection: 'column' }}>
+    <View style={{ flex: 1, flexDirection: 'column', }}>
       <Text style={styles.title}>Mazi</Text>
 
       <TouchableOpacity
         style={styles.firstbutton}
-        >
+        onPress={() => navigation.navigate("LocalBusinessTasks")}
+      >
         <Image source={require("./assets/ui/button1.png")} />
       </TouchableOpacity>
 
       <TouchableOpacity
-        style={styles.buttons}>
+        style={styles.buttons}
+        onPress={() => navigation.navigate("WellnessTasks")}
+      >
         <Image source={require("./assets/ui/button2.png")} />
       </TouchableOpacity>
 
       <TouchableOpacity
-        style={styles.buttons}>
+        style={styles.buttons}
+        onPress={() => navigation.navigate("FitnessTasks")}
+      >
         <Image source={require("./assets/ui/button3.png")} />
       </TouchableOpacity>
 
       <TouchableOpacity
-        style={styles.buttons}>
+        style={styles.buttons}
+        onPress={() => navigation.navigate("QuarantineTask")}
+      >
         <Image source={require("./assets/ui/button4.png")} />
       </TouchableOpacity>
     </View>
@@ -79,29 +103,38 @@ function TaskDashboard({ navigation }) {
 
 function LocalBusinessTasks({ navigation }) {
   return (
-    null
-    // Placeholder
+    <View style={{ flex: 1, flexDirection: 'column' }}>
+      <Text style={styles.title}>Mazi</Text>
+
+    </View>
+
   );
 }
 
 function WellnessTasks({ navigation }) {
   return (
-    null
-    // Placeholder
+    <View style={{ flex: 1, flexDirection: 'column' }}>
+      <Text style={styles.title}>Mazi</Text>
+
+    </View>
   );
 }
 
 function FitnessTasks({ navigation }) {
   return (
-    null
-    // Placeholder
+    <View style={{ flex: 1, flexDirection: 'column' }}>
+      <Text style={styles.title}>Mazi</Text>
+
+    </View>
   );
 }
 
 function QuarantineTask({ navigation }) {
   return (
-    null
-    // Placeholder
+    <View style={{ flex: 1, flexDirection: 'column' }}>
+      <Text style={styles.title}>Mazi</Text>
+
+    </View>
   );
 }
 
@@ -159,7 +192,7 @@ function App() {
             }}
           />
 
-          <Tab.Screen name="Tasks" component={TaskDashboard}
+          <Tab.Screen name="Tasks" component={TaskDashboardNav}
             options={{
               tabBarLabel: "",
               tabBarIcon: ({ }) => (

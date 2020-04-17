@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TouchableOpacity, Image, StyleSheet, Text, View, TabBarIOSItem } from 'react-native';
+import { ScrollView, TouchableOpacity, Image, StyleSheet, Text, View, TabBarIOSItem } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
@@ -76,10 +76,14 @@ function TaskDashboardNav({ navigation }) {
     }
     }>
       <Stack.Screen name="TaskDashboard" component={TaskDashboard} />
+
       <Stack.Screen name="LocalBusinessTasks" component={LocalBusinessTasks} />
       <Stack.Screen name="WellnessTasks" component={WellnessTasks} />
       <Stack.Screen name="FitnessTasks" component={FitnessTasks} />
       <Stack.Screen name="QuarantineTask" component={QuarantineTask} />
+
+      <Stack.Screen name="TaskScreen" component={TaskScreen} />
+
     </Stack.Navigator>
   );
 }
@@ -89,9 +93,7 @@ function TaskDashboard({ navigation }) {
   return (
     <View style={{ flex: 1, flexDirection: 'column', }}>
       <Text style={styles.title}>Mazi</Text>
-
       <Text style={styles.tasks}>Here are your tasks for today</Text>
-
       <TouchableOpacity
         style={styles.firstbutton}
         onPress={() => navigation.navigate("LocalBusinessTasks")}
@@ -154,14 +156,68 @@ function WellnessTasks({ navigation }) {
 
 function FitnessTasks({ navigation }) {
   return (
-    <View style={{ flex: 1, flexDirection: 'column' }}>
+    <View style={{ flex: 1, flexDirection: 'column', }}>
       <Text style={styles.title}>Mazi</Text>
       <Text style={styles.taskCategory}>Fitness</Text>
 
+      <ScrollView persistentScrollbar={true}>
+        <Text style={styles.tasks2}>Complete tasks to earn points!</Text>
+
+        <TouchableOpacity
+          style={styles.firstbutton}
+          onPress={() => navigation.navigate("TaskScreen")}
+        >
+          <Image source={require("./assets/ui/tasks/task1.png")} />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.buttons}
+          onPress={() => navigation.navigate("TaskScreen")}
+        >
+          <Image source={require("./assets/ui/tasks/task2.png")} />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.buttons}
+          onPress={() => navigation.navigate("TaskScreen")}
+        >
+          <Image source={require("./assets/ui/tasks/task3.png")} />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.buttons}
+          onPress={() => navigation.navigate("TaskScreen")}
+        >
+          <Image source={require("./assets/ui/tasks/task4.png")} />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.buttons}
+          onPress={() => navigation.navigate("TaskScreen")}
+        >
+          <Image source={require("./assets/ui/tasks/task5.png")} />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.buttons}
+          onPress={() => navigation.navigate("TaskScreen")}
+        >
+          <Image source={require("./assets/ui/tasks/task6.png")} />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.buttons}
+          onPress={() => navigation.navigate("TaskScreen")}
+        >
+          <Image source={require("./assets/ui/tasks/task7.png")} />
+        </TouchableOpacity>
+
+      </ScrollView>
     </View>
   );
 }
 
+// Placeholder
 function QuarantineTask({ navigation }) {
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
@@ -175,8 +231,11 @@ function QuarantineTask({ navigation }) {
 // 
 function TaskScreen({ navigation }) {
   return (
-    null
-    // Placeholder
+    <View style={{ flex: 1, flexDirection: 'column' }}>
+      <Text style={styles.title}>Mazi</Text>
+      <Text style={styles.taskTitle}>20 push-ups</Text>
+
+    </View>
   );
 }
 
@@ -275,6 +334,7 @@ const styles = StyleSheet.create({
   buttons: {
     marginTop: 30,
     alignSelf: 'center',
+    marginBottom: 5,
   },
   taskCategory: {
     fontFamily: "DidactGothic-Regular",
@@ -283,6 +343,14 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: 30,
     color: '#8AC6D1',
+  },
+  taskTitle: {
+    fontFamily: "DidactGothic-Regular",
+    fontSize: 40,
+    lineHeight: 39,
+    alignSelf: 'center',
+    marginTop: 30,
+    color: '#82BCC7',
   },
   text: {
     fontFamily: "DidactGothic-Regular",
@@ -302,6 +370,15 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 0, height: 4 },
     textShadowRadius: 4,
   },
+  tasks2: {
+    fontFamily: "DidactGothic-Regular",
+    fontSize: 25,
+    textAlign: 'center',
+    marginTop: 30,
+    textShadowColor: 'rgba(0, 0, 0, 0.25)',
+    textShadowOffset: { width: 0, height: 4 },
+    textShadowRadius: 4,
+  },
   text2: {
     fontFamily: "DidactGothic-Regular",
     fontSize: 28,
@@ -312,7 +389,9 @@ const styles = StyleSheet.create({
     textShadowRadius: 4,
   },
   image: {
-    alignSelf: 'center', 
+    alignSelf: 'center',
     marginTop: 60,
+    resizeMode: 'contain',
+    flex: 1,
   }
 })

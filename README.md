@@ -5,6 +5,8 @@ Project Page and Screenshots: https://devpost.com/software/mazi-uxvoiy
 
 Video Demo: https://vimeo.com/409025265
 
+Built with React Native, Expo, Figma, Firebase, and Google Cloud. 
+
 ![Logo](https://github.com/Parch1/Mazi/blob/master/assets/logo.png)
 
 # Inspiration

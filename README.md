@@ -5,7 +5,7 @@ Project Page and Screenshots: https://devpost.com/software/mazi-uxvoiy
 
 Video Demo: https://vimeo.com/409025265
 
-Built with React Native, Expo, Figma, Firebase, and Google Cloud. 
+Built with React Native and Expo, and designed with Figma.
 
 # What it Does
 Mazi is a user-friendly mobile application that encourages people to move their bodies daily, care about their wellness, practice social distancing by staying at home, and support local businesses- now and always.
@@ -26,7 +26,7 @@ During this pandemic, we all have a crucial responsibility of staying inside. On
 A recent question arose: why are people not staying inside, and how can we change this? Our app, Mazi, promotes living a healthy lifestyle during this difficult time, staying inside to help decrease the spread of COVID-19, supporting local businesses with a reward system, and most importantly, working together as a community to get through this. Mazi means “Together” in Greek, which is fitting for our current global situation: to get through anything as a community, whether it is COVID-19 or not, we all have to work together as a team by trying to be our best selves, being mindful of the health and safety of others, and supporting both the ups and downs of those around us.
 
 # Credits
-Developed by Ryan lee.
+Developed by Ryan Lee.
 
 Designed by Tyler Amano-Smerling.
 
